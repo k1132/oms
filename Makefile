@@ -23,5 +23,5 @@ app:
 		env CGO_ENABLED=0 GOOS=$${os} GOARCH=$${arch} GOMIPS=$${gomips} go build -trimpath -ldflags "$(LDFLAGS)" -o ./release/oms_$${target_suffix} cmd/omsd/main.go;\
 		echo "Build $${os}-$${arch} done";\
 	)
-	@mv ./release/oms_windows_amd64 ./release/oms_windows_amd64.exe
-	@mv ./release/oms_windows_arm64 ./release/oms_windows_arm64.exe
+	#@mv ./release/oms_windows_amd64 ./release/oms_windows_amd64.exe
+	#@mv ./release/oms_windows_arm64 ./release/oms_windows_arm64.exe
