@@ -14,7 +14,11 @@ on:
         type: string
         description: 'Tag name'
         required: false
-        default: ''
+        default: 'tagname'
+      tag:
+        description: 'Image tag'
+        required: true
+        default: 'test'
 
 jobs:
   build:
@@ -45,16 +49,6 @@ jobs:
           make all
         env:
           release_name: ${{ inputs.tag_name != '' && inputs.tag_name || github.ref_name }}
-
-      - name: Draft release
-        uses: softprops/action-gh-release@v1
-        with:
-          body: Release for new version
-          files: |
-            ./release/*
-            ./configs/config.yaml.example
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Archive artifacts for oms
         uses: actions/upload-artifact@v1
