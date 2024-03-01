@@ -54,6 +54,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: oms
-          files: |
-            ./release/*
-            ./configs/config.yaml.example
+          path: ./release/
